@@ -40,8 +40,9 @@ jobs:
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
+        working-directory: perah-properties-vertx
         with:
-          context: ./perah-properties-vertx
+          context: .
           file: ./Dockerfile
           push: true
           tags: |
