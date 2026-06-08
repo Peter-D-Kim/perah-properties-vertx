@@ -4,10 +4,10 @@
 #
 
 app = "perah-properties-vertx"
-primary_region = "us-west"
+primary_region = "sfo"
 
 [build]
-  image = "ghcr.io/peter-d-kim/perah-properties-vertx:latest"
+  dockerfile = "Dockerfile"
 
 [http_service]
   internal_port = 8080
