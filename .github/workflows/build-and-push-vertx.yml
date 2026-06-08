@@ -50,3 +50,15 @@ jobs:
             ghcr.io/${{ env.OWNER }}/perah-properties-vertx:${{ github.sha }}
           cache-from: type=registry,ref=ghcr.io/${{ env.OWNER }}/perah-properties-vertx:latest
           cache-to: type=registry,ref=ghcr.io/${{ env.OWNER }}/perah-properties-vertx:cache,mode=max
+
+      - name: Deploy to Fly.io
+        if: ${{ secrets.FLY_API_TOKEN }}
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Deploy with Fly.io
+        if: ${{ secrets.FLY_API_TOKEN }}
+        run: |
+          cd perah-properties-vertx
+          flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
