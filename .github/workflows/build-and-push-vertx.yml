@@ -48,4 +48,4 @@ jobs:
             ghcr.io/${{ env.OWNER }}/perah-properties-vertx:latest
             ghcr.io/${{ env.OWNER }}/perah-properties-vertx:${{ github.sha }}
           cache-from: type=registry,ref=ghcr.io/${{ env.OWNER }}/perah-properties-vertx:latest
-          cache-to: type=registry,mode=max
+          cache-to: type=registry,ref=ghcr.io/${{ env.OWNER }}/perah-properties-vertx:cache,mode=max
