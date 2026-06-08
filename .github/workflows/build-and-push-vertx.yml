@@ -41,10 +41,9 @@ jobs:
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
-        working-directory: perah-properties-vertx
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./perah-properties-vertx
+          file: ./perah-properties-vertx/Dockerfile
           push: true
           tags: |
             ghcr.io/${{ env.OWNER }}/perah-properties-vertx:latest
